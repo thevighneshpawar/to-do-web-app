@@ -1,0 +1,33 @@
+<%- include("header") -%>
+
+    <div class="box" id="heading">
+
+        <!-- You need to write most of the logic in app.js file if some is not possible in app.js or
+    more quicker possible in ejs then you need to add here  only use to modify content -->
+    <% if(listTitle=="saturday" || listTitle=="sunday"){ %>
+        <h1 style="color: purple;"> It's a <%= listTitle %>  List!</h1>
+    <% }else{ %>
+        <h1 style="color: blue;"> It's a <%= listTitle %>  List!</h1>
+        <% } %>
+
+    </div>
+
+  <div class="box">
+    
+        <!-- Adding one by one items from array -->
+        <% for(var i=0;i < newlistitems.length;i++){ %>
+            <div class="item">
+                <input type="checkbox" name="" id="">
+                <p> <%= newlistitems[i] %></p>
+            </div>
+            
+            <% } %>
+
+            <form class="item" action="/" method="post">
+                <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+                <button type="submit" name="list" value=<%= listTitle %>>+</button>
+            </form>
+   
+  </div>
+    
+  <%- include("footer") -%>
